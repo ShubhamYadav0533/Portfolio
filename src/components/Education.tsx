@@ -5,28 +5,27 @@ import { education } from '../data';
 const Education: React.FC = () => {
   return (
     <section id="education" className="container mx-auto py-48 px-6 perspective-2000">
-      <div className="text-center mb-32">
+      <div className="text-center mb-32 relative">
         <motion.h2 
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="text-6xl md:text-9xl font-black text-white/5 tracking-tighter absolute left-1/2 -translate-x-1/2 -top-10 select-none"
+          className="text-6xl md:text-9xl font-black text-text-primary/5 tracking-tighter absolute left-1/2 -translate-x-1/2 -top-10 select-none uppercase"
         >
-          HISTORY
+          History
         </motion.h2>
-        <h2 className="text-5xl md:text-7xl font-black text-white relative z-10">
-          Academic <span className="bg-gradient-to-r from-[#00d2ff] to-[#9d50bb] bg-clip-text text-transparent">Milestones</span>
+        <h2 className="text-5xl md:text-7xl font-black text-text-primary relative z-10 uppercase tracking-tighter">
+          Academic <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">Milestones</span>
         </h2>
       </div>
       
       <div className="relative max-w-5xl mx-auto">
-        {/* Animated Central Line */}
         <motion.div 
           initial={{ height: 0 }}
           whileInView={{ height: '100%' }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-gradient-to-b from-[#00d2ff] via-[#9d50bb] to-transparent" 
+          className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent opacity-30" 
         />
 
         <div className="space-y-32">
@@ -41,12 +40,10 @@ const Education: React.FC = () => {
                 index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
               }`}
             >
-              {/* Floating Year Node */}
-              <div className="absolute left-1/2 -translate-x-1/2 w-20 h-20 bg-[#030303] border border-white/10 rounded-full flex items-center justify-center z-20 shadow-[0_0_30px_rgba(0,210,255,0.2)]">
-                <span className="text-[#00d2ff] font-black text-xs tracking-tighter">{item.year}</span>
+              <div className="absolute left-1/2 -translate-x-1/2 w-20 h-20 bg-bg-primary border border-black/5 dark:border-white/10 rounded-full flex items-center justify-center z-20 shadow-xl transition-colors duration-500">
+                <span className="text-accent-primary font-black text-xs tracking-tighter">{item.year}</span>
               </div>
 
-              {/* 3D Content Card */}
               <div className={`w-[42%] group perspective-1000`}>
                 <motion.div 
                   whileHover={{ 
@@ -54,23 +51,21 @@ const Education: React.FC = () => {
                     translateZ: 30,
                     scale: 1.02
                   }}
-                  className="p-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[3rem] hover:bg-white/10 transition-all duration-500 preserve-3d"
+                  className="p-10 bg-card-bg border border-black/5 dark:border-white/10 backdrop-blur-2xl rounded-[3rem] hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-500 preserve-3d"
                 >
-                  <h3 className="text-white text-3xl font-black mb-4 tracking-tight group-hover:text-[#00d2ff] transition-colors">
+                  <h3 className="text-text-primary text-3xl font-black mb-4 tracking-tight group-hover:text-accent-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-white/50 leading-relaxed text-lg font-medium">
+                  <p className="text-text-secondary leading-relaxed text-lg font-medium">
                     {item.description}
                   </p>
                   
-                  {/* Decorative number */}
-                  <span className="absolute -top-6 -right-6 text-8xl font-black text-white/5 select-none">
+                  <span className="absolute -top-6 -right-6 text-8xl font-black text-text-primary/5 select-none transition-colors duration-500">
                     0{index + 1}
                   </span>
                 </motion.div>
               </div>
 
-              {/* Spacer for the other side */}
               <div className="w-[42%]" />
             </motion.div>
           ))}

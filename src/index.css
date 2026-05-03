@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-card-bg: var(--card-bg);
+  --color-accent-primary: #00d2ff;
+  --color-accent-secondary: #9d50bb;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #030303;
+  --text-secondary: #4b5563;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-primary: #030303;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary transition-colors duration-500;
+  }
+}
+
+/* 3D Perspective Utilities */
+.perspective-1000 { perspective: 1000px; }
+.perspective-1500 { perspective: 1500px; }
+.perspective-2000 { perspective: 2000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.translate-z-10 { transform: translateZ(10px); }
+.translate-z-20 { transform: translateZ(20px); }
+.translate-z-40 { transform: translateZ(40px); }
+.translate-z-60 { transform: translateZ(60px); }
+
+/* Custom Glass Effect */
+.glass {
+  @apply bg-card-bg backdrop-blur-2xl border border-white/10;
+}
+
+.dark .glass {
+  @apply border-white/10;
+}
+
+.light .glass {
+  @apply border-black/10;
+}

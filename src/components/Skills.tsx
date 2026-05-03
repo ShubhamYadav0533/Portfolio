@@ -12,11 +12,10 @@ import {
   Box, 
   Zap,
   Coffee,
-  Figma,
-  Cloud
+  Cloud,
+  Wind
 } from 'lucide-react';
 
-// Map skill names to icons if images are removed
 const iconMap: Record<string, any> = {
   "Java": Coffee,
   "JavaScript": Terminal,
@@ -29,7 +28,7 @@ const iconMap: Record<string, any> = {
   "C": Code2,
   "MySQL": Database,
   "MongoDB": Cloud,
-  "Tailwind CSS": Figma // Using Figma icon as a placeholder for creative styling if needed, or just Layers
+  "Tailwind CSS": Wind
 };
 
 const Skills: React.FC = () => {
@@ -41,11 +40,11 @@ const Skills: React.FC = () => {
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter"
+          className="text-5xl md:text-8xl font-black text-text-primary mb-6 tracking-tighter"
         >
-          CORE <span className="bg-gradient-to-r from-[#00d2ff] to-[#9d50bb] bg-clip-text text-transparent">STACK</span>
+          CORE <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">STACK</span>
         </motion.h2>
-        <p className="text-white/40 max-w-xl mx-auto text-lg">
+        <p className="text-text-secondary max-w-xl mx-auto text-lg">
           Transforming complex problems into elegant, three-dimensional digital solutions.
         </p>
       </div>
@@ -66,27 +65,21 @@ const Skills: React.FC = () => {
                 rotateY: 15, 
                 rotateX: -10,
                 translateZ: 50,
-                boxShadow: "0 25px 50px -12px rgba(0, 210, 255, 0.25)"
               }}
-              className="group relative p-10 bg-white/5 border border-white/10 backdrop-blur-xl rounded-[2.5rem] flex flex-col items-center justify-center gap-6 cursor-pointer preserve-3d transition-all duration-300"
+              className="group relative p-10 bg-card-bg border border-black/5 dark:border-white/10 backdrop-blur-xl rounded-[2.5rem] flex flex-col items-center justify-center gap-6 cursor-pointer preserve-3d transition-all duration-300"
             >
-              {/* 3D Depth Layer */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 rounded-[2.5rem] transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-text-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-[2.5rem] transition-opacity" />
               
-              {/* Icon in 3D */}
-              <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 group-hover:border-[#00d2ff]/50 transition-colors shadow-inner">
-                <Icon size={40} className="text-white group-hover:text-[#00d2ff] transition-colors" />
+              <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-bg-primary/50 rounded-2xl border border-black/5 dark:border-white/10 group-hover:border-accent-primary/50 transition-colors shadow-inner">
+                <Icon size={40} className="text-text-primary group-hover:text-accent-primary transition-colors" />
               </div>
               
               <div className="relative z-10 text-center">
-                <h4 className="text-white font-black text-lg tracking-widest uppercase mb-1">
+                <h4 className="text-text-primary font-black text-lg tracking-widest uppercase mb-1">
                   {skill.name}
                 </h4>
-                <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#00d2ff] to-[#9d50bb] transition-all duration-500 mx-auto rounded-full" />
+                <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-500 mx-auto rounded-full" />
               </div>
-
-              {/* Floating Reflection */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-1/2 h-4 bg-cyan-500/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           );
         })}
