@@ -51,6 +51,64 @@ export const services = [
   }
 ];
 
+export const projects = [
+  {
+    title: "Colleges CRM",
+    description: "A full-stack CRM platform for college management — student records, admissions, and analytics dashboard built with React, Node.js and MongoDB.",
+    tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: true,
+    color: "#00d2ff"
+  },
+  {
+    title: "E-Commerce Platform",
+    description: "Scalable online store with real-time inventory, payment gateway integration (Stripe), admin panel and order tracking system.",
+    tags: ["React", "Node.js", "MySQL", "Stripe"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: true,
+    color: "#9d50bb"
+  },
+  {
+    title: "Portfolio 3D",
+    description: "This very portfolio — built with React, Three.js, Framer Motion and Tailwind CSS with 3D animated birds, smooth scroll effects and dark/light theme.",
+    tags: ["React", "Three.js", "Framer Motion", "TypeScript"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: false,
+    color: "#00d2ff"
+  },
+  {
+    title: "Task Management App",
+    description: "Collaborative task manager with drag-and-drop boards, real-time updates via WebSocket, role-based access control and activity feed.",
+    tags: ["React", "Node.js", "WebSocket", "MongoDB"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: false,
+    color: "#9d50bb"
+  },
+  {
+    title: "REST API Gateway",
+    description: "High-performance API gateway with JWT authentication, rate limiting, request caching and auto-generated Swagger documentation.",
+    tags: ["Node.js", "Express", "Redis", "MySQL"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: false,
+    color: "#00d2ff"
+  },
+  {
+    title: "Real-Time Chat",
+    description: "End-to-end encrypted chat application with rooms, file sharing, emoji reactions, and read receipts using Socket.io and React.",
+    tags: ["React", "Socket.io", "Node.js", "MongoDB"],
+    link: "#",
+    github: "https://github.com/TechDev0001",
+    featured: false,
+    color: "#9d50bb"
+  }
+];
+
+
 export const skills = [
   { name: "Java", icon: "java.png" },
   { name: "JavaScript", icon: "javascript.webp" },

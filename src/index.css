@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @theme {
   --color-bg-primary: var(--bg-primary);
@@ -13,22 +14,32 @@
   --bg-primary: #ffffff;
   --text-primary: #030303;
   --text-secondary: #4b5563;
-  --card-bg: rgba(0, 0, 0, 0.05);
-  --glass-border: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.08);
 }
 
 .dark {
-  --bg-primary: #030303;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --bg-primary: #050508;
+  --text-primary: #f0f0f5;
+  --text-secondary: #9090a8;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 @layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-bg-primary text-text-primary transition-colors duration-500;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  ::selection { background: rgba(0, 210, 255, 0.25); }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,210,255,0.25); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0,210,255,0.5); }
 }
 
 /* 3D Perspective Utilities */
@@ -41,15 +52,20 @@
 .translate-z-40 { transform: translateZ(40px); }
 .translate-z-60 { transform: translateZ(60px); }
 
-/* Custom Glass Effect */
+/* Glass */
 .glass {
-  @apply bg-card-bg backdrop-blur-2xl border border-white/10;
+  @apply bg-card-bg backdrop-blur-2xl;
+  border: 1px solid var(--glass-border);
 }
 
-.dark .glass {
-  @apply border-white/10;
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00d2ff, #9d50bb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.light .glass {
-  @apply border-black/10;
-}
+/* Glows */
+.glow-primary { box-shadow: 0 0 40px rgba(0,210,255,0.12), 0 0 100px rgba(0,210,255,0.04); }
+.glow-secondary { box-shadow: 0 0 40px rgba(157,80,187,0.12), 0 0 100px rgba(157,80,187,0.04); }
