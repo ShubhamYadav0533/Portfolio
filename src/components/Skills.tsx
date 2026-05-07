@@ -33,52 +33,56 @@ const iconMap: Record<string, any> = {
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="container mx-auto py-32 px-6 perspective-2000">
-      <div className="text-center mb-24">
-        <motion.h2 
-          initial={{ opacity: 0, y: 50, rotateX: -45 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+    <section id="skills" className="container mx-auto py-40 px-6">
+      <div className="flex flex-col items-center text-center mb-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-8xl font-black text-text-primary mb-6 tracking-tighter"
+          className="mb-6 inline-flex px-4 py-1.5 rounded-full bg-accent-primary/5 border border-accent-primary/20"
         >
-          CORE <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">STACK</span>
+          <span className="text-accent-primary text-[10px] font-black uppercase tracking-[0.4em]">Expertise</span>
+        </motion.div>
+        
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="heading-xl mb-6"
+        >
+          Core <span className="gradient-text">Stack</span>
         </motion.h2>
-        <p className="text-text-secondary max-w-xl mx-auto text-lg">
-          Transforming complex problems into elegant, three-dimensional digital solutions.
+        <p className="text-text-secondary max-w-2xl text-lg font-medium leading-relaxed">
+          I specialize in building robust and scalable applications using modern technologies and industry best practices.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
         {skills.map((skill, index) => {
           const Icon = iconMap[skill.name] || Code2;
           
           return (
             <motion.div 
               key={index} 
-              initial={{ opacity: 0, z: -100, rotateY: 30 }}
-              whileInView={{ opacity: 1, z: 0, rotateY: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              whileHover={{ 
-                scale: 1.05, 
-                rotateY: 15, 
-                rotateX: -10,
-                translateZ: 50,
-              }}
-              className="group relative p-10 bg-card-bg border border-black/5 dark:border-white/10 backdrop-blur-xl rounded-[2.5rem] flex flex-col items-center justify-center gap-6 cursor-pointer preserve-3d transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="group relative p-8 glass glass-hover rounded-[2.5rem] flex flex-col items-center justify-center gap-6 cursor-pointer overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-text-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-[2.5rem] transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 via-transparent to-accent-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-bg-primary/50 rounded-2xl border border-black/5 dark:border-white/10 group-hover:border-accent-primary/50 transition-colors shadow-inner">
-                <Icon size={40} className="text-text-primary group-hover:text-accent-primary transition-colors" />
+              <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-white dark:bg-bg-secondary rounded-3xl shadow-xl shadow-black/5 group-hover:scale-110 group-hover:shadow-accent-primary/20 transition-all duration-500">
+                <Icon size={36} className="text-text-primary group-hover:text-accent-primary transition-colors" />
               </div>
               
               <div className="relative z-10 text-center">
-                <h4 className="text-text-primary font-black text-lg tracking-widest uppercase mb-1">
+                <h4 className="text-text-primary font-black text-xs tracking-[0.2em] uppercase mb-1">
                   {skill.name}
                 </h4>
-                <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-accent-primary to-accent-secondary transition-all duration-500 mx-auto rounded-full" />
+                <div className="flex justify-center gap-1">
+                  <div className="h-0.5 w-4 bg-accent-primary/30 rounded-full group-hover:w-8 group-hover:bg-accent-primary transition-all duration-500" />
+                </div>
               </div>
             </motion.div>
           );

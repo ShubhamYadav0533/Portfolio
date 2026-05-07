@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Background from '../components/Background';
 import { personalInfo, services, education } from '../data';
-import { Github, Linkedin, Twitter, Download, Code2, Server, Shield, TestTube } from 'lucide-react';
+import { Github, Linkedin, Twitter, Download, Code2, Server, Shield, TestTube, ArrowUpRight } from 'lucide-react';
 
 const serviceIcons: Record<string, any> = {
   "Full-Stack Development": Code2,
@@ -17,30 +17,28 @@ const About: React.FC = () => {
     <div className="relative text-text-primary selection:bg-accent-primary/30 transition-colors duration-500 min-h-screen">
       <Background />
       <Navbar />
-      <main className="relative z-10 container mx-auto px-6 pt-40 pb-24">
+      <main className="relative z-10 container mx-auto px-6 pt-48 pb-24">
         {/* Hero Block */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-20 items-center mb-40">
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-accent-primary font-bold text-sm tracking-[0.3em] uppercase mb-4">About Me</p>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-text-primary leading-tight mb-8">
+            <p className="subheading">The Journey</p>
+            <h1 className="heading-xl mb-8">
               The Developer<br />
-              <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
-                Behind the Code
-              </span>
+              <span className="gradient-text">Behind the Code</span>
             </h1>
-            <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-xl">
+            <p className="text-text-secondary text-lg leading-relaxed mb-12 max-w-xl font-medium">
               {personalInfo.bio}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <a
                 href="#"
-                className="inline-flex items-center gap-3 px-7 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-2xl text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-text-primary text-bg-primary rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-accent-primary hover:text-white transition-all duration-300"
               >
-                <Download size={18} /> Download CV
+                <Download size={18} /> Download Resume
               </a>
               <div className="flex gap-3">
                 {personalInfo.socials.map((s, i) => (
@@ -49,7 +47,7 @@ const About: React.FC = () => {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl border border-text-primary/10 bg-card-bg flex items-center justify-center text-text-secondary hover:text-accent-primary hover:border-accent-primary/40 transition-all"
+                    className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-text-secondary hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300"
                   >
                     {s.name === 'GitHub' && <Github size={20} />}
                     {s.name === 'LinkedIn' && <Linkedin size={20} />}
@@ -61,96 +59,102 @@ const About: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="grid grid-cols-2 gap-6"
           >
             {[
               { label: 'Years Experience', value: '3+' },
-              { label: 'Projects Completed', value: '20+' },
-              { label: 'Technologies', value: '12+' },
-              { label: 'Happy Clients', value: '15+' },
+              { label: 'Projects Done', value: '25+' },
+              { label: 'Tech Stack', value: '15+' },
+              { label: 'Success Rate', value: '100%' },
             ].map((stat, i) => (
               <div
                 key={i}
-                className="p-8 bg-card-bg border border-text-primary/5 rounded-3xl backdrop-blur-xl flex flex-col gap-2 hover:border-accent-primary/30 transition-colors"
+                className="p-10 glass glass-hover rounded-[2.5rem] flex flex-col gap-3"
               >
-                <span className="text-5xl font-black bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+                <span className="text-5xl font-black gradient-text">
                   {stat.value}
                 </span>
-                <span className="text-text-secondary font-bold text-sm uppercase tracking-wider">{stat.label}</span>
+                <span className="text-text-tertiary font-black text-[10px] uppercase tracking-[0.2em]">{stat.label}</span>
               </div>
             ))}
           </motion.div>
         </div>
 
         {/* Services */}
-        <div className="mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-text-primary uppercase mb-4">
-              What I <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">Do</span>
+        <div className="mb-40">
+          <div className="flex flex-col items-center text-center mb-20">
+            <p className="subheading text-center">Services</p>
+            <h2 className="heading-xl">
+              What I <span className="gradient-text">Offer</span>
             </h2>
-          </motion.div>
+          </div>
           <div className="grid sm:grid-cols-2 gap-8">
             {services.map((service, i) => {
               const Icon = serviceIcons[service.title] || Shield;
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="group p-10 bg-card-bg border border-text-primary/5 rounded-[2.5rem] backdrop-blur-xl hover:border-accent-primary/30 hover:bg-accent-primary/5 transition-all duration-500"
+                  className="group p-12 glass glass-hover rounded-[3rem] relative overflow-hidden"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-2xl bg-white dark:bg-bg-secondary flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-500">
                     <Icon size={30} className="text-accent-primary" />
                   </div>
-                  <h3 className="text-2xl font-black text-text-primary mb-4">{service.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{service.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-black text-text-primary mb-6 group-hover:text-accent-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed text-lg font-medium mb-8">
+                    {service.description}
+                  </p>
+                  <a href="#contact" className="inline-flex items-center gap-2 text-accent-primary font-black text-xs uppercase tracking-widest group/link">
+                    Inquire Now <ArrowUpRight size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                  </a>
                 </motion.div>
               );
             })}
           </div>
         </div>
 
-        {/* Education Timeline */}
+        {/* Journey/Education */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-text-primary uppercase mb-4">
-              My <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">Journey</span>
+          <div className="flex flex-col items-center text-center mb-20">
+            <p className="subheading text-center">History</p>
+            <h2 className="heading-xl">
+              Academic <span className="gradient-text">Milestones</span>
             </h2>
-          </motion.div>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent opacity-30" />
-            <div className="space-y-10">
+          </div>
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent opacity-20" />
+            <div className="space-y-12">
               {education.map((item, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -40 }}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex gap-8 pl-20 relative"
+                  className={`flex flex-col md:flex-row items-center gap-10 relative ${
+                    i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
                 >
-                  <div className="absolute left-4 top-6 w-9 h-9 rounded-full bg-bg-primary border border-accent-primary/50 flex items-center justify-center shadow-lg shadow-accent-primary/10">
-                    <span className="text-accent-primary font-black text-[10px]">{item.year}</span>
+                  <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-bg-primary border-2 border-accent-primary shadow-[0_0_15px_rgba(0,210,255,0.5)] z-10" />
+                  
+                  <div className={`w-full md:w-[45%] pl-20 md:pl-0 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    <div className="glass p-10 rounded-[2.5rem] glass-hover">
+                      <span className="text-accent-primary font-black text-xs tracking-widest uppercase mb-3 block">
+                        {item.year}
+                      </span>
+                      <h3 className="text-2xl font-black text-text-primary mb-3 leading-tight">{item.title}</h3>
+                      <p className="text-text-secondary font-medium leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 p-8 bg-card-bg border border-text-primary/5 rounded-3xl hover:border-accent-primary/20 transition-colors">
-                    <h3 className="text-xl font-black text-text-primary mb-2">{item.title}</h3>
-                    <p className="text-text-secondary leading-relaxed">{item.description}</p>
-                  </div>
+                  <div className="hidden md:block w-[10%]" />
+                  <div className="hidden md:block w-[45%]" />
                 </motion.div>
               ))}
             </div>

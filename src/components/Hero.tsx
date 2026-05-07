@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { personalInfo } from '../data';
 import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
-import Birds3D from './Birds3D';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,92 +13,89 @@ const Hero: React.FC = () => {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
     >
-      {/* 3D Birds Canvas — full section background */}
-      <Birds3D />
-
       {/* Gradient overlays for depth */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-bg-primary to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-bg-primary/50 to-transparent" />
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg-primary/30 to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg-primary/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-bg-primary via-bg-primary/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-bg-primary/80 to-transparent" />
       </div>
 
       {/* Hero Content */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 container mx-auto px-6 pt-36 pb-28 flex flex-col items-center text-center"
+        className="relative z-10 container mx-auto px-6 pt-20 flex flex-col items-center text-center"
       >
         {/* Available Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-8 inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-accent-primary/30 bg-accent-primary/10 backdrop-blur-sm"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, type: 'spring' }}
+          className="mb-10 inline-flex items-center gap-3 px-6 py-3 rounded-2xl glass border-accent-primary/20 shadow-xl shadow-accent-primary/5"
         >
-          <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
-          <span className="text-accent-primary font-bold text-sm tracking-[0.25em] uppercase">Available for Work</span>
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-primary"></span>
+          </span>
+          <span className="text-accent-primary font-black text-[11px] tracking-[0.3em] uppercase">Ready for new challenges</span>
         </motion.div>
 
         {/* Tag line */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-lg md:text-xl font-bold text-accent-primary tracking-[0.35em] uppercase mb-4"
+          className="subheading"
         >
-          Creative Developer
+          Product Designer & Full-Stack Developer
         </motion.p>
 
         {/* Name */}
         <motion.h1
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[clamp(4rem,13vw,10rem)] font-black leading-[0.9] tracking-tighter text-text-primary mb-8"
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="heading-xl mb-10"
         >
           {personalInfo.name.split(' ')[0]}<br />
-          <span className="bg-gradient-to-r from-text-primary via-text-primary/60 to-accent-primary/30 bg-clip-text text-transparent">
+          <span className="gradient-text">
             {personalInfo.name.split(' ')[1]}
           </span>
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="text-xl md:text-3xl font-semibold text-text-secondary max-w-2xl mb-12 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-lg md:text-2xl font-medium text-text-secondary max-w-3xl mb-14 leading-relaxed"
         >
-          Building{' '}
-          <span className="text-text-primary font-black underline decoration-accent-primary underline-offset-8">Scalable</span>
-          {' '}&{' '}
-          <span className="text-text-primary font-black">Immersive</span>
-          {' '}digital experiences.
-        </motion.h2>
+          I craft <span className="text-text-primary font-bold underline decoration-accent-primary/30 underline-offset-8">high-performance</span> digital products that blend{' '}
+          <span className="text-text-primary font-bold">cutting-edge technology</span> with exceptional user experience.
+        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-5 mb-14"
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-6 mb-20"
         >
           <a
             href="#contact"
-            className="relative group px-10 py-4 rounded-2xl font-black text-base uppercase tracking-widest overflow-hidden"
+            className="group relative px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl shadow-accent-primary/20"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-2xl" />
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-125" />
-            <span className="relative text-white">Hire Me</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-primary to-accent-secondary" />
+            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
+            <span className="relative text-white flex items-center gap-3">
+              Start a Project <Rocket size={16} />
+            </span>
           </a>
           <a
             href="/projects"
-            className="px-10 py-4 rounded-2xl font-black text-base uppercase tracking-widest border border-text-primary/20 bg-card-bg backdrop-blur-sm text-text-primary hover:border-accent-primary/50 hover:bg-accent-primary/5 transition-all duration-300"
+            className="px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] glass border-text-primary/10 text-text-primary hover:border-accent-primary/40 hover:bg-accent-primary/5 transition-all duration-300 active:scale-95"
           >
-            View Work
+            Explore Work
           </a>
         </motion.div>
 
@@ -107,8 +103,8 @@ const Hero: React.FC = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="flex gap-4"
+          transition={{ duration: 1, delay: 0.9 }}
+          className="flex gap-5"
         >
           {personalInfo.socials.map((s, i) => (
             <a
@@ -116,11 +112,11 @@ const Hero: React.FC = () => {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-xl border border-text-primary/10 bg-card-bg backdrop-blur-sm flex items-center justify-center text-text-secondary hover:text-accent-primary hover:border-accent-primary/40 transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 rounded-2xl glass border-text-primary/5 flex items-center justify-center text-text-secondary hover:text-accent-primary hover:border-accent-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              {s.name === 'GitHub' && <Github size={18} />}
-              {s.name === 'LinkedIn' && <Linkedin size={18} />}
-              {s.name === 'Twitter' && <Twitter size={18} />}
+              {s.name === 'GitHub' && <Github size={20} />}
+              {s.name === 'LinkedIn' && <Linkedin size={20} />}
+              {s.name === 'Twitter' && <Twitter size={20} />}
             </a>
           ))}
         </motion.div>
@@ -130,16 +126,17 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
         style={{ opacity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-text-secondary/40 text-xs font-bold tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-text-tertiary text-[10px] font-black tracking-[0.4em] uppercase">Scroll Down</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-6 h-10 rounded-full border-2 border-text-tertiary/20 flex justify-center pt-2"
         >
-          <ArrowDown size={18} className="text-text-secondary/40" />
+          <motion.div className="w-1 h-2 rounded-full bg-accent-primary" />
         </motion.div>
       </motion.div>
     </section>

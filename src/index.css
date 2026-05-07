@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 @theme {
   --color-bg-primary: var(--bg-primary);
@@ -12,18 +12,26 @@
 
 :root {
   --bg-primary: #ffffff;
-  --text-primary: #030303;
-  --text-secondary: #4b5563;
-  --card-bg: rgba(0, 0, 0, 0.04);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --accent-primary: #00d2ff;
+  --accent-secondary: #9d50bb;
+  --accent-glow: rgba(0, 210, 255, 0.3);
 }
 
 .dark {
-  --bg-primary: #050508;
-  --text-primary: #f0f0f5;
-  --text-secondary: #9090a8;
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --card-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(248, 250, 252, 0.08);
+  --accent-glow: rgba(0, 210, 255, 0.15);
 }
 
 @layer base {
@@ -54,18 +62,49 @@
 
 /* Glass */
 .glass {
-  @apply bg-card-bg backdrop-blur-2xl;
-  border: 1px solid var(--glass-border);
+  @apply backdrop-blur-xl border transition-all duration-300;
+  background: var(--card-bg);
+  border-color: var(--glass-border);
+}
+
+.glass-hover {
+  @apply hover:bg-opacity-80 hover:shadow-2xl hover:shadow-accent-primary/5 hover:-translate-y-1;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #00d2ff, #9d50bb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
 }
 
 /* Glows */
-.glow-primary { box-shadow: 0 0 40px rgba(0,210,255,0.12), 0 0 100px rgba(0,210,255,0.04); }
-.glow-secondary { box-shadow: 0 0 40px rgba(157,80,187,0.12), 0 0 100px rgba(157,80,187,0.04); }
+.glow-primary { 
+  box-shadow: 0 0 40px var(--accent-glow); 
+}
+
+.glow-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glow-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] uppercase;
+}
+
+.subheading {
+  @apply text-accent-primary font-bold text-sm tracking-[0.3em] uppercase mb-4;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
