@@ -2,26 +2,16 @@ export const PRIMARY_COLOR = "#2ce67c";
 
 export const personalInfo = {
   name: "Shubham Yadav",
-  role: "Product Designer & Full-Stack Developer",
+  role: "System Architecture & Scaling Expert",
   bio: "I build high-performance web applications with a focus on seamless user experiences, modern aesthetics, and robust scalable architectures.",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/shubham-yadav-173256276", icon: "Linkedin" },
-    { name: "GitHub", url: "https://github.com/TechDev0001", icon: "Github" },
-    { name: "Twitter", url: "http://x.com/Tech_Shubham01?t", icon: "Twitter" }
+    { name: "GitHub", url: "https://github.com/ShubhamYadav0533", icon: "Github" }
   ]
 };
 
 export const education = [
-  {
-    year: "2018",
-    title: "High School",
-    description: "Graduated from MATA PRASAD ADARSH I.C. with strong academic performance."
-  },
-  {
-    year: "2020",
-    title: "Intermediate",
-    description: "Completed 12th grade with a focus on Mathematics and analytical skills."
-  },
+  
   {
     year: "2023",
     title: "Graduated (BCA)",

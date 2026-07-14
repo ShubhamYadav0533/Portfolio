@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Education from '../components/Education';
-import Skills from '../components/Skills';
-import Contact from '../components/Contact';
 import Background from '../components/Background';
 import { projects } from '../data';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
@@ -84,8 +82,6 @@ const Home: React.FC = () => {
  <Hero />
  <FeaturedProjects />
  <Education />
- <Skills />
- <Contact />
  </main>
 
  <footer className="container mx-auto py-12 px-6 border-t border-black/10 dark:border-white/10 text-center transition-colors duration-500">
@@ -96,7 +92,7 @@ const Home: React.FC = () => {
  <div className="flex gap-8 text-text-secondary/40 text-xs font-bold tracking-[0.2em]">
  <Link to="/about" className="hover:text-text-primary transition-colors">About</Link>
  <Link to="/projects" className="hover:text-text-primary transition-colors">Projects</Link>
- <a href="#contact" className="hover:text-text-primary transition-colors">Contact</a>
+ <Link to="/contact" className="hover:text-text-primary transition-colors">Contact</Link>
  </div>
  </div>
  </footer>
