@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import ArchitectureProcess from '../components/ArchitectureProcess';
 import Background from '../components/Background';
 import { projects } from '../data';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
@@ -71,6 +72,7 @@ const Home: React.FC = () => {
  <Navbar />
  <main className="relative z-10">
  <Hero />
+ <ArchitectureProcess />
  <FeaturedProjects />
  </main>
 
