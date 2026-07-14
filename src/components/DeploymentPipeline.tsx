@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Server, Database, Globe, Layers, Shield, X, ArrowRight } from 'lucide-react';
+import { Github, Database, Globe, Layers, Shield, X, ArrowRight, ChevronDown } from 'lucide-react';
 
 interface NodeData {
   id: string;
@@ -20,10 +20,10 @@ const nodes: NodeData[] = [
   {
     id: "ci",
     icon: Github,
-    title: "CI/CD Pipeline",
+    title: "CI/CD pipeline",
     subtitle: "GitHub Actions",
-    color: "text-blue-400",
-    position: "top-[15%] left-[15%]",
+    color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-400",
+    position: "left-[25%] top-[20%]",
     details: {
       overview: "Automated linting, testing, and Docker image building upon every code push.",
       problemSolved: "Prevents broken code from reaching production. Eliminates manual deployment errors and ensures strict code quality checks before any infrastructure modification.",
@@ -33,10 +33,10 @@ const nodes: NodeData[] = [
   {
     id: "edge",
     icon: Globe,
-    title: "Edge Network",
+    title: "Edge network",
     subtitle: "AWS CloudFront",
-    color: "text-purple-400",
-    position: "top-[15%] right-[15%]",
+    color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-400",
+    position: "left-[75%] top-[20%]",
     details: {
       overview: "Global Content Delivery Network (CDN) coupled with Web Application Firewall (WAF).",
       problemSolved: "Drastically reduces global latency by caching static assets at edge locations. Protects backend systems from massive DDoS attacks and malicious bot traffic.",
@@ -46,10 +46,10 @@ const nodes: NodeData[] = [
   {
     id: "gateway",
     icon: Shield,
-    title: "API Gateway",
-    subtitle: "Load Balancer",
-    color: "text-emerald-400",
-    position: "top-[50%] left-[50%]",
+    title: "API gateway",
+    subtitle: "Load balancer",
+    color: "from-lime-500/20 to-emerald-500/20 border-lime-500/30 text-lime-400",
+    position: "left-[50%] top-[50%]",
     details: {
       overview: "The central nervous system for traffic routing, rate limiting, and SSL termination.",
       problemSolved: "Handles sudden traffic spikes smoothly without crashing backend services. Provides a unified entry point, abstracting internal microservice complexity from clients.",
@@ -59,10 +59,10 @@ const nodes: NodeData[] = [
   {
     id: "compute",
     icon: Layers,
-    title: "Compute Cluster",
+    title: "Compute cluster",
     subtitle: "AWS EKS (K8s)",
-    color: "text-accent-primary",
-    position: "bottom-[15%] left-[25%]",
+    color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-400",
+    position: "left-[37%] top-[80%]",
     details: {
       overview: "Elastic Kubernetes Service managing containerized microservices across multiple availability zones.",
       problemSolved: "Ensures Zero-Downtime deployments via Rolling Updates. Automatically scales pods horizontally based on CPU/Memory metrics (HPA), and handles node failures transparently.",
@@ -72,10 +72,10 @@ const nodes: NodeData[] = [
   {
     id: "data",
     icon: Database,
-    title: "Data Layer",
-    subtitle: "AWS RDS & Redis",
-    color: "text-rose-400",
-    position: "bottom-[15%] right-[25%]",
+    title: "Data layer",
+    subtitle: "AWS RDS and Redis",
+    color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-400",
+    position: "left-[63%] top-[80%]",
     details: {
       overview: "Multi-AZ PostgreSQL cluster coupled with Redis for high-speed in-memory caching.",
       problemSolved: "Prevents database bottlenecks by offloading read-heavy queries to Redis. Multi-AZ replication ensures data remains safe and instantly available even during complete datacenter failure.",
@@ -113,121 +113,166 @@ const DeploymentPipeline: React.FC = () => {
       </div>
 
       {/* Interactive Topology Area (Desktop) */}
-      <div className="relative w-full max-w-5xl mx-auto h-[800px] md:h-[600px] glass rounded-[3rem] border border-text-primary/10 overflow-hidden hidden md:block">
+      <div className="relative w-full max-w-5xl mx-auto h-[600px] bg-[#07110e] rounded-[2.5rem] border border-[#142e27] overflow-hidden hidden md:block shadow-2xl">
         
         {/* Background Grid */}
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.2 }}></div>
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(16,185,129,0.07) 1px, transparent 1px)', backgroundSize: '35px 35px' }}></div>
         
-        {/* Animated SVG Connections (Circuit Wires) */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ filter: 'drop-shadow(0 0 8px rgba(44,230,124,0.3))' }}>
-          {/* Wire from CI to Gateway */}
-          <motion.path 
-            d="M 15% 15% L 50% 15% L 50% 50%" 
-            fill="transparent" 
-            stroke="url(#wireGradient)" 
-            strokeWidth="2"
-            strokeDasharray="5 5"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-          />
-          {/* Signal from CI to Gateway */}
-          <motion.circle r="4" fill="#2ce67c" style={{ filter: 'blur(2px)' }}>
-            <animateMotion
-              dur="3s"
-              repeatCount="indefinite"
-              path="M 15% 15% L 50% 15% L 50% 50%"
-            />
-          </motion.circle>
+        {/* Central Ambient Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-          {/* Wire from Gateway to Edge */}
-          <motion.path 
-            d="M 50% 50% L 85% 50% L 85% 15%" 
-            fill="transparent" 
-            stroke="url(#wireGradient)" 
-            strokeWidth="2"
-            strokeDasharray="5 5"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
-          />
-          <motion.circle r="4" fill="#2ce67c" style={{ filter: 'blur(2px)' }}>
-            <animateMotion dur="4s" repeatCount="indefinite" path="M 50% 50% L 85% 50% L 85% 15%" />
-          </motion.circle>
-
-          {/* Wire from Gateway to Compute */}
-          <motion.path 
-            d="M 50% 50% L 50% 85% L 25% 85%" 
-            fill="transparent" 
-            stroke="url(#wireGradient)" 
-            strokeWidth="2"
-            strokeDasharray="5 5"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
-          />
-          <motion.circle r="4" fill="#2ce67c" style={{ filter: 'blur(2px)' }}>
-            <animateMotion dur="2.5s" repeatCount="indefinite" path="M 50% 50% L 50% 85% L 25% 85%" />
-          </motion.circle>
-
-          {/* Wire from Compute to Data */}
-          <motion.path 
-            d="M 25% 85% L 75% 85%" 
-            fill="transparent" 
-            stroke="url(#wireGradient)" 
-            strokeWidth="2"
-            strokeDasharray="5 5"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
-          />
-          <motion.circle r="4" fill="#2ce67c" style={{ filter: 'blur(2px)' }}>
-            <animateMotion dur="3s" repeatCount="indefinite" path="M 25% 85% L 75% 85%" />
-          </motion.circle>
-          
+        {/* SVG Connections & Pulses */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 600" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgba(44,230,124,0.1)" />
-              <stop offset="50%" stopColor="rgba(44,230,124,0.6)" />
-              <stop offset="100%" stopColor="rgba(44,230,124,0.1)" />
-            </linearGradient>
+            <filter id="pulseGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
+
+          {/* Connection 1: CI/CD (ci) -> Compute (compute) */}
+          <motion.path 
+            d="M 250 166 L 370 454" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="4.2s" repeatCount="indefinite" path="M 250 166 L 370 454" />
+          </circle>
+
+          {/* Connection 2: CI/CD (ci) -> Gateway (gateway) */}
+          <motion.path 
+            d="M 250 166 L 500 274" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.1, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="2.8s" repeatCount="indefinite" path="M 250 166 L 500 274" />
+          </circle>
+
+          {/* Connection 3: Edge (edge) -> Gateway (gateway) */}
+          <motion.path 
+            d="M 750 166 L 500 274" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="3.2s" repeatCount="indefinite" path="M 750 166 L 500 274" />
+          </circle>
+
+          {/* Connection 4: Edge (edge) -> Data (data) */}
+          <motion.path 
+            d="M 750 166 L 630 454" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="4.8s" repeatCount="indefinite" path="M 750 166 L 630 454" />
+          </circle>
+
+          {/* Connection 5: Gateway (gateway) -> Compute (compute) */}
+          <motion.path 
+            d="M 500 346 L 370 454" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.4, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="3.5s" repeatCount="indefinite" path="M 500 346 L 370 454" />
+          </circle>
+
+          {/* Connection 6: Gateway (gateway) -> Data (data) */}
+          <motion.path 
+            d="M 500 346 L 630 454" 
+            fill="none" 
+            stroke="#10b981" 
+            strokeWidth="1.5"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+          />
+          <circle r="3.5" fill="#34d399" filter="url(#pulseGlow)">
+            <animateMotion dur="3.8s" repeatCount="indefinite" path="M 500 346 L 630 454" />
+          </circle>
+
+          {/* Connection Ports (Glowing dots at borders) */}
+          <circle cx="250" cy="166" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
+          <circle cx="750" cy="166" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
+          <circle cx="500" cy="274" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
+          <circle cx="500" cy="346" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
+          <circle cx="370" cy="454" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
+          <circle cx="630" cy="454" r="4.5" fill="#10b981" filter="url(#pulseGlow)" />
         </svg>
 
-        {/* Nodes */}
+        {/* Cards */}
         {nodes.map((node) => {
-          const Icon = node.icon;
+          const isGateway = node.id === 'gateway';
+          
+          const cardBorderClass = isGateway 
+            ? "border-lime-500/30 hover:border-lime-400 hover:shadow-lime-500/20" 
+            : "border-emerald-500/30 hover:border-emerald-400 hover:shadow-emerald-500/20";
+            
+          const cardBgClass = isGateway 
+            ? "bg-[#182a06]/85" 
+            : "bg-[#041d16]/85";
+            
+          const subtitleColor = isGateway 
+            ? "text-lime-400/80" 
+            : "text-emerald-400/80";
+
           return (
-            <div key={node.id} className={`absolute ${node.position} -translate-x-1/2 -translate-y-1/2`}>
+            <div key={node.id} className={`absolute ${node.position} -translate-x-1/2 -translate-y-1/2 z-20`}>
               <motion.button
                 onClick={() => setActiveNode(node)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative group flex flex-col items-center gap-4 z-20"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-64 h-[72px] rounded-2xl ${cardBgClass} border-2 ${cardBorderClass} flex flex-col items-center justify-center p-4 transition-all duration-300 shadow-xl cursor-pointer`}
               >
-                {/* Glowing ring */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-16 bg-accent-primary/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                
-                {/* Hardware Node UI */}
-                <div className="w-24 h-24 rounded-2xl bg-bg-primary border border-text-primary/10 group-hover:border-accent-primary/50 flex items-center justify-center relative shadow-2xl transition-colors duration-300">
-                  <div className="absolute inset-1 rounded-xl bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center border border-white/5">
-                    <Icon className={`${node.color} drop-shadow-md group-hover:text-accent-primary transition-colors`} size={32} />
-                  </div>
-                </div>
-                
-                {/* Label */}
-                <div className="text-center bg-bg-primary/90 backdrop-blur-md px-5 py-2.5 rounded-xl border border-text-primary/10 shadow-xl">
-                  <p className="font-black text-text-primary text-sm whitespace-nowrap leading-tight mb-1">{node.title}</p>
-                  <p className="font-bold text-text-tertiary text-[10px] tracking-widest uppercase leading-none">{node.subtitle}</p>
-                </div>
+                <p className="font-bold text-white text-base tracking-tight mb-1">{node.title}</p>
+                <p className={`font-semibold ${subtitleColor} text-xs tracking-wide`}>{node.subtitle}</p>
               </motion.button>
             </div>
           );
         })}
+
+        {/* Down Arrow / Scroll Indicator */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-10 h-10 rounded-full bg-slate-900 border border-[#142e27] flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)] z-30">
+          <ChevronDown size={20} />
+        </div>
       </div>
 
       {/* Mobile Fallback Layout (List view) */}
@@ -335,3 +380,4 @@ const DeploymentPipeline: React.FC = () => {
 };
 
 export default DeploymentPipeline;
+
