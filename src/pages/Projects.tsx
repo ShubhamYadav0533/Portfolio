@@ -5,11 +5,23 @@ import Background from '../components/Background';
 import { projects } from '../data';
 import { ExternalLink, Github, ArrowRight, Tag } from 'lucide-react';
 
+type ProjectType = {
+  title: string;
+  description: string;
+  link: string;
+  featured: boolean;
+  color: string;
+  tags?: string[];
+  github?: string;
+};
+
+const typedProjects = projects as ProjectType[];
+
 const Projects: React.FC = () => {
  const [filter, setFilter] = useState<string>('All');
- const allTags = ['All', ...Array.from(new Set(projects.flatMap(p => p.tags)))];
+ const allTags = ['All', ...Array.from(new Set(typedProjects.flatMap(p => p.tags || [])))];
 
- const filtered = filter === 'All' ? projects : projects.filter(p => p.tags.includes(filter));
+ const filtered = filter === 'All' ? typedProjects : typedProjects.filter(p => (p.tags || []).includes(filter));
 
  return (
  <div className="relative text-text-primary selection:bg-accent-primary/30 transition-colors duration-500 min-h-screen">
@@ -84,7 +96,7 @@ const Projects: React.FC = () => {
 
  {/* Tags */}
  <div className="flex flex-wrap gap-2 mb-8 relative z-10">
- {project.tags.map(tag => (
+ {(project.tags || []).map((tag: string) => (
  <span
  key={tag}
  className="px-3 py-1 rounded-lg text-[10px] font-black tracking-widest bg-white/50 dark:bg-black/20 border border-glass-border text-text-tertiary"
@@ -104,6 +116,7 @@ const Projects: React.FC = () => {
  {/* Bottom Section */}
  <div className="mt-auto pt-8 border-t border-glass-border flex items-center justify-between relative z-10">
  <div className="flex gap-4">
+ {project.github && (
  <a
  href={project.github}
  target="_blank"
@@ -113,6 +126,7 @@ const Projects: React.FC = () => {
  >
  <Github size={20} />
  </a>
+ )}
  <a
  href={project.link}
  className="text-text-tertiary hover:text-accent-primary transition-colors p-1"

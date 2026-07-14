@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ArchitectureProcess from '../components/ArchitectureProcess';
+import ComplexityHandling from '../components/ComplexityHandling';
+import DeploymentPipeline from '../components/DeploymentPipeline';
 import Background from '../components/Background';
 import { projects } from '../data';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
@@ -74,6 +76,8 @@ const Home: React.FC = () => {
  <Hero />
  <ArchitectureProcess />
  <FeaturedProjects />
+ <ComplexityHandling />
+ <DeploymentPipeline />
  </main>
 
  <footer className="container mx-auto py-12 px-6 border-t border-black/10 dark:border-white/10 text-center transition-colors duration-500">
