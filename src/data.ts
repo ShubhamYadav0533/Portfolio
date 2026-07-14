@@ -59,7 +59,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#00d2ff"
+    color: "#2ce67c"
   },
   {
     title: "E-Commerce Platform",
@@ -68,7 +68,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#9d50bb"
+    color: "#2ce67c"
   },
   {
     title: "Portfolio 3D",
@@ -77,7 +77,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#00d2ff"
+    color: "#2ce67c"
   },
   {
     title: "Task Management App",
@@ -86,7 +86,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#9d50bb"
+    color: "#2ce67c"
   },
   {
     title: "REST API Gateway",
@@ -95,7 +95,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#00d2ff"
+    color: "#2ce67c"
   },
   {
     title: "Real-Time Chat",
@@ -104,7 +104,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#9d50bb"
+    color: "#2ce67c"
   }
 ];
 
