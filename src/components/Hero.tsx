@@ -26,42 +26,18 @@ const Hero: React.FC = () => {
  style={{ y: textY, opacity }}
  className="relative z-10 container mx-auto px-6 pt-20 flex flex-col items-center text-center"
  >
- {/* Available Badge */}
- <motion.div
- initial={{ opacity: 0, scale: 0.8 }}
- animate={{ opacity: 1, scale: 1 }}
- transition={{ duration: 0.8, type: 'spring' }}
- className="mb-10 inline-flex items-center gap-3 px-6 py-3 rounded-2xl glass border-accent-primary/20 shadow-xl shadow-accent-primary/5"
- >
- <span className="relative flex h-2.5 w-2.5">
- <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-primary opacity-75"></span>
- <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-primary"></span>
- </span>
- <span className="text-accent-primary font-black text-[11px] tracking-[0.3em] ">Ready for new challenges</span>
- </motion.div>
+
 
  {/* Tag line */}
- <motion.p
+ <motion.h1
  initial={{ opacity: 0, y: 20 }}
  animate={{ opacity: 1, y: 0 }}
  transition={{ duration: 0.7, delay: 0.2 }}
- className="subheading"
+ className="text-5xl md:text-7xl font-black tracking-tighter mb-10 gradient-text leading-tight"
  >
  {personalInfo.role}
- </motion.p>
-
- {/* Name */}
- <motion.h1
- initial={{ opacity: 0, y: 40 }}
- animate={{ opacity: 1, y: 0 }}
- transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
- className="heading-xl mb-10"
- >
- {personalInfo.name.split(' ')[0]}<br />
- <span className="gradient-text">
- {personalInfo.name.split(' ')[1]}
- </span>
  </motion.h1>
+
 
  {/* Subtitle */}
  <motion.p

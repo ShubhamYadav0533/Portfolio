@@ -1,3 +1,5 @@
+export const PRIMARY_COLOR = "#2ce67c";
+
 export const personalInfo = {
   name: "Shubham Yadav",
   role: "Product Designer & Full-Stack Developer",
@@ -59,7 +61,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "E-Commerce Platform",
@@ -68,7 +70,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Portfolio 3D",
@@ -77,7 +79,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Task Management App",
@@ -86,7 +88,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "REST API Gateway",
@@ -95,7 +97,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Real-Time Chat",
@@ -104,7 +106,7 @@ export const projects = [
     link: "#",
     github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   }
 ];
 
