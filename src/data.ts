@@ -1,25 +1,17 @@
+export const PRIMARY_COLOR = "#2ce67c";
+
 export const personalInfo = {
   name: "Shubham Yadav",
-  role: "Product Designer & Full-Stack Developer",
+  role: "System Architecture & Scaling Expert",
   bio: "I build high-performance web applications with a focus on seamless user experiences, modern aesthetics, and robust scalable architectures.",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/shubham-yadav-173256276", icon: "Linkedin" },
-    { name: "GitHub", url: "https://github.com/TechDev0001", icon: "Github" },
-    { name: "Twitter", url: "http://x.com/Tech_Shubham01?t", icon: "Twitter" }
+    { name: "GitHub", url: "https://github.com/ShubhamYadav0533", icon: "Github" }
   ]
 };
 
 export const education = [
-  {
-    year: "2018",
-    title: "High School",
-    description: "Graduated from MATA PRASAD ADARSH I.C. with strong academic performance."
-  },
-  {
-    year: "2020",
-    title: "Intermediate",
-    description: "Completed 12th grade with a focus on Mathematics and analytical skills."
-  },
+  
   {
     year: "2023",
     title: "Graduated (BCA)",
@@ -53,58 +45,46 @@ export const services = [
 
 export const projects = [
   {
-    title: "Colleges CRM",
-    description: "A full-stack CRM platform for college management — student records, admissions, and analytics dashboard built with React, Node.js and MongoDB.",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    title: "Real Estate CRM Management Platform",
+    description: "A comprehensive real estate CRM platform designed for property management, lead generation, agent tracking, and advanced analytics.",
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
-    title: "E-Commerce Platform",
-    description: "Scalable online store with real-time inventory, payment gateway integration (Stripe), admin panel and order tracking system.",
-    tags: ["React", "Node.js", "MySQL", "Stripe"],
+    title: "ERP Management App",
+    description: "An Enterprise Resource Planning application built to streamline complex business operations including payroll, inventory, and staff management.",
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: true,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Portfolio 3D",
     description: "This very portfolio — built with React, Three.js, Framer Motion and Tailwind CSS with 3D animated birds, smooth scroll effects and dark/light theme.",
-    tags: ["React", "Three.js", "Framer Motion", "TypeScript"],
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Task Management App",
     description: "Collaborative task manager with drag-and-drop boards, real-time updates via WebSocket, role-based access control and activity feed.",
-    tags: ["React", "Node.js", "WebSocket", "MongoDB"],
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "REST API Gateway",
     description: "High-performance API gateway with JWT authentication, rate limiting, request caching and auto-generated Swagger documentation.",
-    tags: ["Node.js", "Express", "Redis", "MySQL"],
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   },
   {
     title: "Real-Time Chat",
     description: "End-to-end encrypted chat application with rooms, file sharing, emoji reactions, and read receipts using Socket.io and React.",
-    tags: ["React", "Socket.io", "Node.js", "MongoDB"],
     link: "#",
-    github: "https://github.com/TechDev0001",
     featured: false,
-    color: "#2ce67c"
+    color: PRIMARY_COLOR
   }
 ];
 

@@ -8,8 +8,8 @@ const navLinks = [
  { label: 'Home', href: '/', exact: true },
  { label: 'About', href: '/about', exact: false },
  { label: 'Projects', href: '/projects', exact: false },
- { label: 'Skills', href: '/#skills', exact: false },
- { label: 'Contact', href: '/#contact', exact: false },
+ { label: 'Skills', href: '/skills', exact: false },
+ { label: 'Contact', href: '/contact', exact: false },
 ];
 
 const Navbar: React.FC = () => {

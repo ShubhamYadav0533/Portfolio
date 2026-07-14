@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Background from '../components/Background';
-import { personalInfo, services, education } from '../data';
+import { personalInfo, services } from '../data';
 import { Github, Linkedin, Twitter, Download, Code2, Server, Shield, TestTube, ArrowUpRight } from 'lucide-react';
+import Education from '../components/Education';
 
 const serviceIcons: Record<string, any> = {
  "Full-Stack Development": Code2,
@@ -122,43 +123,8 @@ const About: React.FC = () => {
  </div>
 
  {/* Journey/Education */}
- <div>
- <div className="flex flex-col items-center text-center mb-20">
- <p className="subheading text-center">History</p>
- <h2 className="heading-xl">
- Academic <span className="gradient-text">Milestones</span>
- </h2>
- </div>
- <div className="relative max-w-4xl mx-auto">
- <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent opacity-20" />
- <div className="space-y-12">
- {education.map((item, i) => (
- <motion.div
- key={i}
- initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
- whileInView={{ opacity: 1, x: 0 }}
- viewport={{ once: true }}
- className={`flex flex-col md:flex-row items-center gap-10 relative ${
- i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
- }`}
- >
- <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-bg-primary border-2 border-accent-primary shadow-[0_0_15px_rgba(0,210,255,0.5)] z-10" />
- 
- <div className={`w-full md:w-[45%] pl-20 md:pl-0 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
- <div className="glass p-10 rounded-[2.5rem] glass-hover">
- <span className="text-accent-primary font-black text-xs tracking-widest mb-3 block">
- {item.year}
- </span>
- <h3 className="text-2xl font-black text-text-primary mb-3 leading-tight">{item.title}</h3>
- <p className="text-text-secondary font-medium leading-relaxed">{item.description}</p>
- </div>
- </div>
- <div className="hidden md:block w-[10%]" />
- <div className="hidden md:block w-[45%]" />
- </motion.div>
- ))}
- </div>
- </div>
+ <div className="-mx-6">
+  <Education />
  </div>
  </main>
  </div>
