@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { personalInfo } from '../data';
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Twitter, Rocket } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="subheading"
         >
-          Product Designer & Full-Stack Developer
+          {personalInfo.role}
         </motion.p>
 
         {/* Name */}
@@ -68,10 +68,9 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-2xl font-medium text-text-secondary max-w-3xl mb-14 leading-relaxed"
+          className="text-lg md:text-xl font-medium text-text-secondary max-w-2xl mb-14 leading-relaxed"
         >
-          I craft <span className="text-text-primary font-bold underline decoration-accent-primary/30 underline-offset-8">high-performance</span> digital products that blend{' '}
-          <span className="text-text-primary font-bold">cutting-edge technology</span> with exceptional user experience.
+          {personalInfo.bio}
         </motion.p>
 
         {/* CTA Buttons */}

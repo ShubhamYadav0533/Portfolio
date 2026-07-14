@@ -33,10 +33,10 @@ const Navbar: React.FC = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -100, x: '-50%' }}
-        animate={{ y: 0, x: '-50%' }}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-[92%] max-w-6xl px-4 md:px-8 py-3 flex justify-between items-center glass rounded-2xl shadow-xl transition-all duration-300 ${
+        className={`fixed top-6 left-0 right-0 mx-auto z-[1000] w-[92%] max-w-6xl px-4 md:px-8 py-3 flex justify-between items-center glass rounded-2xl shadow-xl transition-all duration-300 ${
           scrolled ? 'py-2.5 w-[90%] shadow-2xl' : 'py-4'
         }`}
       >

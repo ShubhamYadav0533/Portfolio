@@ -13,7 +13,7 @@ import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 const FeaturedProjects: React.FC = () => {
   const featured = projects.filter(p => p.featured);
   return (
-    <section className="container mx-auto py-32 px-6">
+    <section className="container mx-auto py-40 px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
