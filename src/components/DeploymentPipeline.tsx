@@ -525,7 +525,7 @@ const DeploymentPipeline: React.FC = () => {
             >
               
               {/* Region Selector HUD */}
-              <div className="flex flex-wrap items-center gap-3 p-4 bg-slate-100/50 dark:bg-slate-950/40 rounded-2xl border border-text-primary/5 w-fit mx-auto md:mx-0">
+              <div className="flex flex-wrap items-center gap-3 p-4 bg-card-bg backdrop-blur-md rounded-2xl border border-text-primary/10 w-fit mx-auto md:mx-0">
                 <span className="text-text-secondary text-xs font-bold mr-2">Deploy Region:</span>
                 {regions.map((reg) => (
                   <button
@@ -534,7 +534,7 @@ const DeploymentPipeline: React.FC = () => {
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       activeRegion.id === reg.id
                         ? 'bg-accent-primary/20 border border-accent-primary/30 text-accent-primary'
-                        : 'bg-white/50 dark:bg-white/5 border border-transparent text-text-secondary hover:text-text-primary hover:bg-white/80 dark:hover:bg-white/10'
+                        : 'bg-transparent border border-transparent text-text-secondary hover:text-text-primary hover:bg-text-primary/5'
                     }`}
                   >
                     {reg.name}
@@ -544,7 +544,7 @@ const DeploymentPipeline: React.FC = () => {
 
               {/* Main SVG/HTML Canvas Map */}
               <div className="relative w-full overflow-x-auto md:overflow-visible pb-12">
-                <div className="relative w-[1000px] h-[1140px] mx-auto bg-slate-50/50 dark:bg-slate-950/50 rounded-[2.5rem] border border-text-primary/5 overflow-hidden shadow-2xl backdrop-blur-md">
+                <div className="relative w-[1000px] h-[1140px] mx-auto bg-bg-secondary rounded-[2.5rem] border border-text-primary/10 overflow-hidden shadow-2xl">
                   
                   {/* Grid Lines Overlay */}
                   <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(44,230,124,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(44,230,124,0.3) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -692,7 +692,7 @@ const DeploymentPipeline: React.FC = () => {
                           style={{
                             boxShadow: isHovered ? `0 0 25px ${node.glowColor}` : 'none'
                           }}
-                          className={`w-[260px] py-4.5 px-5 rounded-[1.25rem] bg-white/90 dark:bg-slate-900/90 border-2 ${
+                          className={`w-[260px] py-4.5 px-5 rounded-[1.25rem] bg-card-bg backdrop-blur-md border-2 ${
                             isHovered ? 'border-accent-primary' : 'border-text-primary/10'
                           } flex items-center gap-4 transition-all duration-300 shadow-xl cursor-pointer hover:border-accent-primary/40`}
                         >
@@ -729,7 +729,7 @@ const DeploymentPipeline: React.FC = () => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
-                    className="p-8 rounded-[2rem] bg-white/85 dark:bg-slate-900/85 border border-accent-primary/20 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+                    className="p-8 rounded-[2rem] bg-card-bg border border-accent-primary/20 backdrop-blur-xl shadow-2xl relative overflow-hidden"
                   >
                     {/* Corner Ambient Glow */}
                     <div 
@@ -739,7 +739,7 @@ const DeploymentPipeline: React.FC = () => {
                     
                     <button 
                       onClick={() => setActiveNode(null)}
-                      className="absolute top-6 right-6 w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-text-secondary hover:text-text-primary transition-colors"
+                      className="absolute top-6 right-6 w-9 h-9 flex items-center justify-center rounded-full bg-text-primary/5 hover:bg-text-primary/10 text-text-secondary hover:text-text-primary transition-colors"
                     >
                       <X size={16} />
                     </button>
@@ -782,7 +782,7 @@ const DeploymentPipeline: React.FC = () => {
                       </div>
 
                       {/* Right: Specs & Stack */}
-                      <div className="space-y-6 bg-slate-50/50 dark:bg-slate-950/40 p-6 rounded-2xl border border-text-primary/5">
+                      <div className="space-y-6 bg-bg-primary p-6 rounded-2xl border border-text-primary/5 shadow-inner">
                         <div>
                           <h4 className="text-text-primary font-black text-xs tracking-wider  mb-3">Live Node Metrics</h4>
                           <div className="space-y-3 font-mono">
@@ -807,7 +807,7 @@ const DeploymentPipeline: React.FC = () => {
                           <h4 className="text-text-primary font-black text-xs tracking-wider  mb-3">Tech Stack</h4>
                           <div className="flex flex-wrap gap-1.5">
                             {activeNode.techs.map((tech) => (
-                              <span key={tech} className="px-2.5 py-1 bg-slate-100 dark:bg-white/5 border border-text-primary/10 rounded-lg text-[10px] font-black text-text-secondary tracking-wider">
+                              <span key={tech} className="px-2.5 py-1 bg-text-primary/5 border border-text-primary/10 rounded-lg text-[10px] font-black text-text-secondary tracking-wider">
                                 {tech}
                               </span>
                             ))}
@@ -874,7 +874,7 @@ const DeploymentPipeline: React.FC = () => {
                               ? 'bg-accent-primary/20 border-accent-primary text-accent-primary shadow-[0_0_8px_rgba(44,230,124,0.4)]' 
                               : isRunning 
                                 ? 'bg-amber-400/20 border-amber-400 text-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.4)] animate-pulse'
-                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-text-secondary'
+                                : 'bg-bg-primary border-text-primary/10 text-text-secondary'
                           }`}
                         >
                           {isCompleted ? <Check size={11} strokeWidth={4} /> : <span className="text-[10px] font-bold">{step.id + 1}</span>}
@@ -887,7 +887,7 @@ const DeploymentPipeline: React.FC = () => {
                               ? 'bg-accent-primary/10 border-accent-primary/30 text-accent-primary'
                               : isRunning 
                                 ? 'bg-amber-400/10 border-amber-400/30 text-amber-400'
-                                : 'bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-900 text-text-secondary'
+                                : 'bg-bg-secondary border-text-primary/5 text-text-secondary'
                           }`}>
                             <StepIcon size={18} />
                           </div>
@@ -912,7 +912,7 @@ const DeploymentPipeline: React.FC = () => {
               <div className="lg:col-span-7 flex flex-col glass rounded-3xl border border-text-primary/5 overflow-hidden shadow-2xl relative">
                 
                 {/* Terminal Header Tab bar */}
-                <div className="bg-slate-900 dark:bg-slate-950/80 px-6 py-4 flex items-center justify-between border-b border-white/5">
+                <div className="bg-slate-900 px-6 py-4 flex items-center justify-between border-b border-white/5">
                   <div className="flex items-center gap-2">
                     <Terminal size={15} className="text-accent-primary" />
                     <span className="font-mono text-xs font-black tracking-wider text-slate-200">production_deploy.sh</span>
