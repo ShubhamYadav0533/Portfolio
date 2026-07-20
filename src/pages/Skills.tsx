@@ -76,7 +76,7 @@ const Skills: React.FC = () => {
               <Zap className="text-accent-primary" size={28} />
             </div>
             <h3 className="text-4xl font-black text-text-primary mb-2">High Volume</h3>
-            <p className="text-sm font-bold text-accent-primary tracking-widest uppercase mb-4">Traffic Scaling</p>
+            <p className="text-sm font-bold text-accent-primary tracking-widest  mb-4">Traffic Scaling</p>
             <p className="text-text-secondary font-medium leading-relaxed">
               Designed architecture optimized for high-throughput, supporting millions of concurrent requests with sub-second latency and zero downtime.
             </p>
@@ -93,7 +93,7 @@ const Skills: React.FC = () => {
               <Server className="text-accent-primary" size={28} />
             </div>
             <h3 className="text-4xl font-black text-text-primary mb-2">Distributed</h3>
-            <p className="text-sm font-bold text-accent-primary tracking-widest uppercase mb-4">Microservices</p>
+            <p className="text-sm font-bold text-accent-primary tracking-widest  mb-4">Microservices</p>
             <p className="text-text-secondary font-medium leading-relaxed">
               Built fault-tolerant, decentralized backend systems using Docker and Kubernetes to ensure seamless horizontal scaling across data centers.
             </p>
@@ -110,7 +110,7 @@ const Skills: React.FC = () => {
               <Shield className="text-accent-primary" size={28} />
             </div>
             <h3 className="text-4xl font-black text-text-primary mb-2">Secure</h3>
-            <p className="text-sm font-bold text-accent-primary tracking-widest uppercase mb-4">Data Integrity</p>
+            <p className="text-sm font-bold text-accent-primary tracking-widest  mb-4">Data Integrity</p>
             <p className="text-text-secondary font-medium leading-relaxed">
               Implemented enterprise-grade security protocols, E2E encryption, and strict identity management to protect highly sensitive architecture.
             </p>

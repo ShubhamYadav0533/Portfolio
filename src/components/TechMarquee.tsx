@@ -24,7 +24,7 @@ const TechMarquee: React.FC = () => {
           {[...techList, ...techList].map((tech, index) => (
             <span 
               key={index} 
-              className="text-2xl md:text-4xl font-black text-text-primary/20 hover:text-accent-primary transition-colors duration-300 select-none uppercase tracking-widest"
+              className="text-2xl md:text-4xl font-black text-text-primary/20 hover:text-accent-primary transition-colors duration-300 select-none  tracking-widest"
             >
               {tech}
             </span>
