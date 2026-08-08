@@ -144,7 +144,7 @@ const Skills: React.FC = () => {
               
               <div className="relative z-10 w-24 h-24 p-4 flex items-center justify-center bg-white/5 dark:bg-black/20 rounded-3xl group-hover:scale-110 transition-all duration-500">
                 <img 
-                  src={assetMap[skill.icon]} 
+                  src={assetMap[skill.icon] || skill.icon} 
                   alt={skill.name} 
                   className="w-full h-full object-contain filter drop-shadow-xl"
                   onError={(e) => {
